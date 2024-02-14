@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <data>
+        <variable
+            name="activity"
+            type="com.sandhyagill.colorchangingapplication.MainActivity" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRed"
+        android:text="@string/red"
+        android:onClick="@{()->activity.buttonClicked(1)}"
+        android:backgroundTint="@color/red"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnBlue"
+        android:layout_margin="@dimen/margin_10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBlue"
+        android:backgroundTint="@color/blue"
+        android:text="@string/blue"
+        android:onClick="@{()->activity.buttonClicked(2)}"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnRed"
+        app:layout_constraintEnd_toStartOf="@id/btnGreen"
+        android:layout_margin="@dimen/margin_10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGreen"
+        android:backgroundTint="@color/green"
+        android:text="@string/green"
+        android:onClick="@{()->activity.buttonClicked(3)}"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnBlue"
+        android:layout_margin="@dimen/margin_10dp"/>
+
+
+  <androidx.fragment.app.FragmentContainerView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:id="@+id/fragment"
+      android:name="com.sandhyagill.colorchangingapplication.FirstFragment"
+      app:layout_constraintTop_toBottomOf="@id/btnRed"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
